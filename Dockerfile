@@ -27,8 +27,4 @@ COPY . /app
 
 CMD php artisan serve --host=0.0.0.0 --port=8181
 
-<<<<<<< HEAD
 EXPOSE 8181
-=======
-EXPOSE 8181
->>>>>>> 57a4aec (server code changes)
