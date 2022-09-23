@@ -1,0 +1,36 @@
+version: "3.7"
+services:
+  app:
+    build:
+      args:
+        user: gostock
+        uid: 1000
+      context: ./
+      dockerfile: Dockerfile
+    image: gostock
+    
+    container_name: gostock-app
+    restart: unless-stopped
+    working_dir: /var/www/
+    ports:
+      - 81:8000
+    volumes:
+      - ./:/var/www
+    networks:
+      - gostock
+    
+  nginx:
+    image: nginx:alpine
+    container_name: gostock-nginx
+    restart: unless-stopped
+    ports:
+      - 8001:80
+    volumes:
+      - ./:/var/www
+      - ./docker-compose/nginx:/etc/nginx/conf.d/
+    networks:
+      - gostock
+
+networks:
+  gostock:
+    driver: bridge
