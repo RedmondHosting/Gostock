@@ -70,8 +70,7 @@ class InstallScriptController extends Controller
 
       try {
         // Check Datebase
-         $d = AdminSettings::first(); 
-        //  dd($d);
+         $d = AdminSettings::first();
 
          return response()->json([
              'success' => false,
