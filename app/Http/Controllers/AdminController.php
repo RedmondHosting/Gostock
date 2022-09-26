@@ -215,7 +215,7 @@ class AdminController extends Controller {
 
 		$categories = Categories::findOrFail($request->id);
 		$temp       = 'public/temp/'; // Temp
-	  $path       = 'public/img-category/'; // Path General
+	  	$path       = 'public/img-category/'; // Path General
 
 		Validator::extend('ascii_only', function($attribute, $value, $parameters){
     		return !preg_match('/[^x00-x7F\-]/i', $value);
@@ -237,7 +237,7 @@ class AdminController extends Controller {
 		$thumbnail        = $request->slug.'-'.str_random(32).'.'.$extension;
 
 		if ($request->file('thumbnail')->move($temp, $thumbnail)) {
-
+			mkdir($path, 0777);
 			$image = Image::make($temp.$thumbnail);
 
 			if ($image->width() == 457 && $image->height() == 359) {
