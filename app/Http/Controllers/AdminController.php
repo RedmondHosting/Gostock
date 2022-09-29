@@ -156,7 +156,8 @@ class AdminController extends Controller {
 		$rules = [
           'name'        => 'required',
 	        'slug'        => 'required|ascii_only|unique:categories',
-	        'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+	        // 'thumbnail'   => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+	        'thumbnail'   => 'mimes:png|dimensions:min_width=457,min_height=359',
         ];
 
 		$this->validate($request, $rules);
@@ -224,7 +225,8 @@ class AdminController extends Controller {
 		$rules = [
           'name'      => 'required',
 	      'slug'      => 'required|ascii_only|unique:categories,slug,'.$request->id,
-	      'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+	    //   'thumbnail' => 'mimes:jpg,gif,png,jpe,jpeg|dimensions:min_width=457,min_height=359',
+	      'thumbnail' => 'mimes:png|dimensions:min_width=457,min_height=359',
 	     ];
 
 		$this->validate($request, $rules);

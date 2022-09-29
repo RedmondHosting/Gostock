@@ -50,7 +50,7 @@
               <label class="col-sm-2 col-form-label text-lg-end">{{ trans('admin.thumbnail') }} ({{trans('misc.optional')}})</label>
               <div class="col-lg-5 col-sm-10">
                 <div class="input-group mb-1">
-                  <input name="thumbnail" type="file" class="form-control custom-file rounded-pill">
+                  <input name="thumbnail" type="file" class="form-control custom-file rounded-pill" accept=".png">
                 </div>
                 <small class="d-block">{{ trans('admin.thumbnail_desc') }}</small>
               </div>
